@@ -1,0 +1,40 @@
+<%- include("partials/body.ejs"); %>
+    <h1>All Posts</h1>
+    <div id="line"></div>
+    <div class="cont">
+        <% if (locals.data) { %>
+            <% if (data && data.length > 0) { %>
+        <% data.forEach(post=> { %>
+            <div class="card shadow">
+                <div class="card-body">
+                    <div class="post">
+                        <h2>
+                            <%= post.title %>
+                        </h2>
+                        <p><strong>Author:</strong>
+                            <%= post.Auther_name %>
+                        </p>
+                        <p><strong>Content:</strong>
+                            <%= post.content %>
+                        </p>
+
+                        <!-- Edit and Delete Buttons -->
+                        <form method="get" action="/edit/<%= post.id %>"  style="display: inline;">
+                            <button type="submit" class="btn btn-warning">Edit</button>
+                        </form>
+
+                        <form method="post" action="/delete/<%= post.id %>" style="display: inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+            <% } else { %>
+                <h1>There is no post.</h1>
+                <% } %>
+            <% } %>
+    </div>
+     
+
+    <%- include("partials/footer.ejs"); %>

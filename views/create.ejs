@@ -1,0 +1,32 @@
+
+<%-include("partials/body.ejs"); %>
+<div class="cont">
+    <div class="card shadow">
+        <div class="card-body">
+            <h1>Write what is in your mind</h1>
+            <div id="line"></div>
+            <form action="/post" method="post">
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="form4Example1" class="form-control" name="auther_name" autocomplete="off"/>
+                    <label class="form-label" for="form4Example1">Auther Name</label>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="form4Example2" class="form-control" name="topic" autocomplete="off"/>
+                    <label class="form-label" for="form4Example2">topic</label>
+                </div>
+
+                <!-- Message input -->
+                <div class="form-outline mb-4">
+                    <textarea class="form-control" id="form4Example3" rows="4" name="content" autocomplete="off"></textarea>
+                    <label class="form-label" for="form4Example3">content</label>
+                </div>
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%-include("partials/footer.ejs"); %>

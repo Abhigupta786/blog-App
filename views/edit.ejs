@@ -1,0 +1,36 @@
+<%- include("partials/body.ejs"); %>
+
+<section class="cont">
+    <div class="card">
+        <div class="card-body">
+            <h1>Edit Post</h1>
+            <div id="line"></div>
+            <% if(locals.post ) { %> 
+            <form method="post" action="/edit/<%= post.id %>">
+                <!-- Author name input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="authorName" name="auther_name" class="form-control" value="<%= post.Auther_name %>"/>
+                    <label class="form-label" for="authorName">Author Name</label>
+                </div>
+
+                <!-- Title input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="postTitle" name="topic" class="form-control" value="<%= post.title %>" required />
+                    <label class="form-label" for="postTitle">Post Title</label>
+                </div>
+
+                <!-- Content input -->
+                <div class="form-outline mb-4">
+                    <textarea class="form-control" id="postContent" name="content" rows="4" required><%= post.content %></textarea>
+                    <label class="form-label" for="postContent">Post Content</label>
+                </div>
+
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Save Changes</button>
+            </form>
+            <%  } %>
+        </div>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs"); %>
